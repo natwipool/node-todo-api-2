@@ -6,6 +6,6 @@ let db = {
 };
 
 mongoose.Promise = global.Promise;
-mongoose.connect(db.mlab || db.localhost, { useMongoClient: true });
+mongoose.connect( process.env.PORT ? db.mlab : db.localhost, { useMongoClient: true });
 
 module.exports = { mongoose };
